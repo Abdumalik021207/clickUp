@@ -17,8 +17,10 @@ public class Workspace {
     private String name;
     @Column(nullable = false)
     private String color;
-    @Column(nullable = false)
-    private Integer owner_id;
+
+    @OneToOne
+    private User owner_id;
+
     @Column(nullable = false)
     private String initial_letter;
     @Column(nullable = false)

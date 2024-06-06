@@ -15,6 +15,8 @@ public class View {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer icon_id;
+
+    @OneToOne
+    private Icon icon_id;
+
 }

@@ -15,12 +15,16 @@ public class Status {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer space_id;
-    @Column(nullable = false)
-    private Integer project_id;
-    @Column(nullable = false)
-    private Integer category_id;
+
+    @OneToOne
+    private Space space_id;
+
+    @OneToOne
+    private Project project_id;
+
+    @OneToOne
+    private Category category_id;
+
     @Column(nullable = false)
     private String color;
     @Column(nullable = false)

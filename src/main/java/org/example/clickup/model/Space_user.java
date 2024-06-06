@@ -13,8 +13,9 @@ public class Space_user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer space_id;
+    @OneToOne
+    private Space space_id;
+
     @Column(nullable = false)
     private Integer member_id;
 }

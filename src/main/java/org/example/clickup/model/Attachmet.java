@@ -13,7 +13,10 @@ public class Attachmet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+
+    @OneToOne
+    private Workspace id;
+
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

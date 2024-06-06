@@ -13,10 +13,12 @@ public class Project_user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer project_id;
-    @Column(nullable = false)
-    private Integer user_id;
+    @OneToOne
+    private Project project_id;
+
+    @OneToOne
+    private User user_id;
+
     @Column(nullable = false)
     private String task_permission;
 

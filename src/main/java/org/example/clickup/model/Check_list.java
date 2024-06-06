@@ -15,6 +15,6 @@ public class Check_list {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer task_id;
+    @OneToOne
+    private Task task_id;
 }

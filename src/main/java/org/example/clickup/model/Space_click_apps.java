@@ -13,9 +13,11 @@ public class Space_click_apps {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer space_id;
-    @Column(nullable = false)
-    private Integer click_apps_id;
+
+    @OneToOne
+    private Space space_id;
+
+    @OneToOne
+    private Click_apps click_apps_id;
 
 }

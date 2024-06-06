@@ -13,9 +13,11 @@ public class Task_user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer task_id;
-    @Column(nullable = false)
-    private Integer user_id;
+
+    @OneToOne
+    private Task task_id;
+
+    @OneToOne
+    private User user_id;
 
 }

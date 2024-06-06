@@ -19,8 +19,10 @@ public class Workspace_user {
     private Integer workspace_id;
     @Column(nullable = false)
     private Integer user_id;
-    @Column(nullable = false)
-    private String workspace_role_id;
+
+    @OneToOne
+    private Workspace_role workspace_role_id;
+
     @Column(nullable = false)
     private Timestamp date_invited;
     @Column(nullable = false)

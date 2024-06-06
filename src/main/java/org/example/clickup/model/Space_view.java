@@ -13,8 +13,11 @@ public class Space_view {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer space_id;
-    @Column(nullable = false)
-    private Integer view_id;
+
+    @OneToOne
+    private Space space_id;
+
+    @OneToOne
+    private View view_id;
+
 }

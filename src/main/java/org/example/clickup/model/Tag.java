@@ -17,6 +17,8 @@ public class Tag {
     private String name;
     @Column(nullable = false)
     private String color;
-    @Column(nullable = false)
-    private Integer workspaceId;
+
+    @OneToOne
+    private Workspace workspaceId;
+
 }

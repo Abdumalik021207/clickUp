@@ -19,8 +19,10 @@ public class Task {
     private String name;
     @Column(nullable = false)
     private String description;
-    @Column(nullable = false)
-    private Integer status_id;
+
+    @OneToOne
+    private Status status_id;
+
     @Column(nullable = false)
     private Integer priority_id;
     @Column(nullable = false)

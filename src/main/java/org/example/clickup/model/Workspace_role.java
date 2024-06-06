@@ -14,8 +14,10 @@ public class Workspace_role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer workspace_id;
+
+    @OneToOne
+    private Workspace workspace_id;
+
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

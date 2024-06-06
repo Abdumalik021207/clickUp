@@ -15,8 +15,10 @@ public class Category_user {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer category_id;
+
+    @ManyToOne
+    private Category category_id;
+
     @Column(nullable = false)
     private Integer user_id;
     @Column(nullable = false)

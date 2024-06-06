@@ -13,8 +13,10 @@ public class Task_dependency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer task_id;
+
+    @OneToOne
+    private Task task_id;
+
     @Column(nullable = false)
     private Integer dependency_task_id;
     @Column(nullable = false)

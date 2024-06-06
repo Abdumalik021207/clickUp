@@ -15,8 +15,10 @@ public class Time_tracker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer task_id;
+
+    @OneToOne
+    private Task task_id;
+
     @Column(nullable = false)
     private Timestamp started_time;
     @Column(nullable = false)

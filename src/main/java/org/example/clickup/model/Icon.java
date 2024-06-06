@@ -13,8 +13,10 @@ public class Icon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer attachment_id;
+
+    @OneToOne
+    private Attachmet attachment_id;
+
     @Column(nullable = false)
     private String color;
     @Column(nullable = false)

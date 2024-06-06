@@ -15,8 +15,8 @@ public class Category {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer projectId;
+    @OneToOne
+    private Project projectId;
     @Column(nullable = false)
     private String acces_type;
     @Column(nullable = false)

@@ -15,8 +15,10 @@ public class Project {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer space_id;
+
+    @OneToOne
+    private Space space_id;
+
     @Column(nullable = false)
     private String acces_type;
     @Column(nullable = false)

@@ -17,14 +17,19 @@ public class Space {
     private String name;
     @Column(nullable = false)
     private String color;
-    @Column(nullable = false)
-    private Integer workspace_id;
+
+    @OneToOne
+    private Workspace workspace_id;
+
     @Column(nullable = false)
     private String initial_letter;
-    @Column(nullable = false)
-    private Integer icon_id;
-    @Column(nullable = false)
-    private Integer owner_id;
+
+    @OneToOne
+    private Icon icon_id;
+
+    @OneToOne
+    private User owner_id;
+
     @Column(nullable = false)
     private Integer access_type;
 

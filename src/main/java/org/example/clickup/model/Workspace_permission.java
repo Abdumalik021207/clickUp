@@ -13,8 +13,8 @@ public class Workspace_permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer workspace_role_id;
+    @OneToOne
+    private Workspace_role workspace_role_id;
     @Column(nullable = false)
     private String permission;
 }

@@ -15,8 +15,10 @@ public class Check_list_item {
     private Integer id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer check_list_id;
+
+    @OneToOne
+    private Check_list check_list_id;
+
     @Column(nullable = false)
     private boolean resolved;
     @Column(nullable = false)

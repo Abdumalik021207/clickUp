@@ -13,8 +13,10 @@ public class Task_tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private Integer task_id;
-    @Column(nullable = false)
-    private Integer tag_id;
+
+    @OneToOne
+    private Task task_id;
+
+    @OneToOne
+    private Tag tag_id;
 }
