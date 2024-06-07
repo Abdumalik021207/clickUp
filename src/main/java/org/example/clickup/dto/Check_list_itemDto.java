@@ -1,6 +1,5 @@
 package org.example.clickup.dto;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Check_list_itemRepo {
+public class Check_list_itemDto {
 
     private String name;
     private Integer check_list_id;

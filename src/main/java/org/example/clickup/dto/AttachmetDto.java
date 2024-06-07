@@ -10,11 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AttachmetDto {
 
-    private String full_name;
-    private String email;
-    private String password;
-    private String color;
-    private String initial_letter;
-    private Integer avatarId;
+    private String name;
+    private String original_name;
+    private String size;
+    private String content_type;
 
 }

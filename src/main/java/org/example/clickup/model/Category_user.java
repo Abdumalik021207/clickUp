@@ -19,8 +19,9 @@ public class Category_user {
     @ManyToOne
     private Category category_id;
 
-    @Column(nullable = false)
-    private Integer user_id;
+    @OneToOne
+    private User user_id;
+
     @Column(nullable = false)
     private String task_permission;
 }
