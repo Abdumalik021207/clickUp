@@ -13,6 +13,6 @@ public class IconDto {
     private Integer attachment_id;
     private String color;
     private String innitial_letter;
-    private String icon;
+    private Integer icon;
 
 }

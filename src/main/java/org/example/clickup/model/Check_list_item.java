@@ -21,7 +21,8 @@ public class Check_list_item {
 
     @Column(nullable = false)
     private boolean resolved;
-    @Column(nullable = false)
-    private Integer assigned_user_id;
+
+    @OneToOne
+    private User assigned_user_id;
 
 }
