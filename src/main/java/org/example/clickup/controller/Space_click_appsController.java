@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Space_click_apps;
 import org.example.clickup.service.Space_click_appsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Space_click_appsController {
     private Space_click_appsService space_click_appsService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Space_click_apps> getSpace_click_apps() {
         return space_click_appsService.getSpace_click_apps();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Space_click_apps getSpace_click_apps(@PathVariable Integer id) {
         return space_click_appsService.getSpace_click_apps(id);
     }
@@ -37,6 +40,7 @@ public class Space_click_appsController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteSpace_click_apps(@PathVariable Integer id) {
         return space_click_appsService.delete(id);
     }

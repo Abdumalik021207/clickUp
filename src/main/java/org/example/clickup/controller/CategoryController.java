@@ -5,6 +5,7 @@ import org.example.clickup.model.Category;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Category getCategoryById(@PathVariable Integer id) {
         return categoryService.getCategoryById(id);
     }
@@ -37,6 +40,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteCategory(@PathVariable Integer id) {
         return categoryService.deleteCategory(id);
     }

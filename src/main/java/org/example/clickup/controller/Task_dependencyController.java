@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Task_dependency;
 import org.example.clickup.service.Task_dependencyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Task_dependencyController {
     private Task_dependencyService task_dependencyService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Task_dependency> getTask_dependency() {
         return task_dependencyService.getTask_dependencies();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Task_dependency getTask_dependency(@PathVariable Integer id) {
         return task_dependencyService.getTask_dependency(id);
     }
@@ -37,6 +40,7 @@ public class Task_dependencyController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteTask_dependency(@PathVariable Integer id) {
         return task_dependencyService.deleteTask_dependency(id);
     }

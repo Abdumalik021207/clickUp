@@ -5,6 +5,7 @@ import org.example.clickup.model.Check_list_item;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.Check_list_itemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Check_list_itemController {
     Check_list_itemService service;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Check_list_item> readAll() {
         return service.getAllCheck_list_items();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Check_list_item readOne(@PathVariable Integer id) {
         return service.getCheck_list_itemById(id);
     }
@@ -37,6 +40,7 @@ public class Check_list_itemController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result delete(@PathVariable Integer id) {
         return service.deleteCheck_list_item(id);
     }

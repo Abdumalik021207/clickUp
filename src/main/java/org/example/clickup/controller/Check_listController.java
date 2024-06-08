@@ -6,6 +6,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.repository.Check_listRepo;
 import org.example.clickup.service.Check_listService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Check_listController {
     Check_listService check_listService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Check_list> getAllCheck_lists() {
         return check_listService.getAllCheck_list();
     }
@@ -38,6 +40,7 @@ public class Check_listController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteCheck_list(@PathVariable Integer id) {
         return check_listService.deleteCheck_list(id);
     }

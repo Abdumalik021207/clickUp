@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Task_user;
 import org.example.clickup.service.Task_userService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Task_userController {
     private Task_userService task_userService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Task_user> getTask_user() {
         return task_userService.findAll();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Task_user getTask_user(@PathVariable Integer id) {
         return task_userService.findById(id);
     }
@@ -37,6 +40,7 @@ public class Task_userController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteTask_user(@PathVariable Integer id) {
         return task_userService.delete(id);
     }

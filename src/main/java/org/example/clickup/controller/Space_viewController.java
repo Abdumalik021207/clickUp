@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Space_view;
 import org.example.clickup.service.Space_viewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Space_viewController {
     private Space_viewService space_viewService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Space_view> readAll() {
         return space_viewService.getAllSpaces();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Space_view readByID(@PathVariable Integer id) {
         return space_viewService.getSpaceById(id);
     }
@@ -37,6 +40,7 @@ public class Space_viewController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result delete(@PathVariable Integer id) {
         return space_viewService.delete(id);
     }

@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.View;
 import org.example.clickup.service.ViewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class ViewController {
     private ViewService viewService;
 
     @GetMapping
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<View> getViews() {
         return viewService.getAllViews();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public View getView(@PathVariable Integer id) {
         return viewService.getView(id);
     }
@@ -37,6 +40,7 @@ public class ViewController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result delete(@PathVariable Integer id) {
         return viewService.deleteView(id);
     }

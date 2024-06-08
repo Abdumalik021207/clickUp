@@ -5,6 +5,7 @@ import org.example.clickup.model.Attachmet;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.AttachmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class AttachmentController {
     AttachmentService attachmentService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Attachmet> getAttachments() {
         return attachmentService.readAll();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Attachmet getAttachment(@PathVariable Integer id) {
         return attachmentService.readById(id);
     }
@@ -37,6 +40,7 @@ public class AttachmentController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteAttachment(@PathVariable Integer id) {
         return attachmentService.delete(id);
     }

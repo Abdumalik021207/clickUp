@@ -5,6 +5,7 @@ import org.example.clickup.model.Project;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class ProjectController {
     private ProjectService projectService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Project> getAllProjects() {
         return projectService.getAllProjects();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Project getProjectById(@PathVariable Integer id) {
         return projectService.getProjectById(id);
     }
@@ -37,6 +40,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteProject(@PathVariable Integer id) {
         return projectService.deleteProject(id);
     }

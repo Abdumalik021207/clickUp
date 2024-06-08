@@ -5,6 +5,7 @@ import org.example.clickup.model.Icon;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.IconService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class IconController {
     private IconService iconService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Icon> getIcons() {
         return iconService.getAllIcons();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Icon getIcon(@PathVariable Integer id) {
         return iconService.getIconById(id);
     }
@@ -37,6 +40,7 @@ public class IconController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteIcon(@PathVariable Integer id) {
         return iconService.deleteIcon(id);
     }

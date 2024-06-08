@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Time_tracker;
 import org.example.clickup.service.Time_trackerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Time_trackerController {
     private Time_trackerService time_trackerService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Time_tracker> getTime_tracker() {
         return time_trackerService.getAll();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Time_tracker getTime_trackerById(@PathVariable Integer id) {
         return time_trackerService.getById(id);
     }
@@ -37,6 +40,7 @@ public class Time_trackerController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteTime_tracker(@PathVariable Integer id) {
         return time_trackerService.delete(id);
     }

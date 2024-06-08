@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Workspace;
 import org.example.clickup.service.WorkspaceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class WorkspaceController {
     private WorkspaceService workspaceService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Workspace> getAllWorkspaces() {
         return workspaceService.getAllWorkspaces();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Workspace getWorkspaceById(@PathVariable Integer id) {
         return workspaceService.getWorkspaceById(id);
     }
@@ -37,6 +40,7 @@ public class WorkspaceController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteWorkspace(@PathVariable Integer id) {
         return workspaceService.deleteWorkspace(id);
     }

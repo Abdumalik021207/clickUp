@@ -5,6 +5,7 @@ import org.example.clickup.model.Result;
 import org.example.clickup.model.Task_history;
 import org.example.clickup.service.Task_historyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class Task_historyController {
     private Task_historyService task_historyService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public List<Task_history> getTask_history() {
         return task_historyService.findAll();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Task_history getTask_history(@PathVariable Integer id) {
         return task_historyService.findById(id);
     }
@@ -37,6 +40,7 @@ public class Task_historyController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
     public Result deleteTask_history(@PathVariable Integer id) {
         return task_historyService.delete(id);
     }
