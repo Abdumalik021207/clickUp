@@ -39,7 +39,6 @@ public class WorkspaceService {
         Workspace workspace = new Workspace();
         workspace.setName(workspaceDto.getName());
         workspace.setColor(workspaceDto.getColor());
-        workspace.setAvatar_id(workspaceDto.getAvatar_id());
         workspace.setInitial_letter(workspaceDto.getInitial_letter());
         Optional<User> byId = userRepo.findById(workspaceDto.getOwner_id());
         if (byId.isPresent()) {
@@ -56,7 +55,6 @@ public class WorkspaceService {
             Workspace workspace = byId.get();
             workspace.setName(workspaceDto.getName());
             workspace.setColor(workspaceDto.getColor());
-            workspace.setAvatar_id(workspaceDto.getAvatar_id());
             workspace.setInitial_letter(workspaceDto.getInitial_letter());
             Optional<User> byId1 = userRepo.findById(workspaceDto.getOwner_id());
             if (byId1.isPresent()) {

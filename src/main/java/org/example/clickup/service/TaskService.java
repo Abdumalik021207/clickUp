@@ -33,13 +33,11 @@ public class TaskService {
         Task task = new Task();
         task.setName(taskDto.getName());
         task.setDescription(taskDto.getDescription());
-        task.setParent_task_id(taskDto.getParent_task_id());
         task.setActived_date(taskDto.getActived_date());
         task.setDue_date(taskDto.getDue_date());
         task.setEstimate_time(taskDto.getEstimate_time());
         task.setActived_date(taskDto.getActived_date());
         task.setDue_time_has(taskDto.getDue_time_has());
-        task.setPriority_id(taskDto.getPriority_id());
         task.setStart_time_has(taskDto.getStart_time_has());
         task.setStarted_date(taskDto.getStarted_date());
         Optional<Status> byId = statusRepo.findById(taskDto.getStatus_id());
@@ -57,13 +55,11 @@ public class TaskService {
             Task task = byId.get();
             task.setName(taskDto.getName());
             task.setDescription(taskDto.getDescription());
-            task.setParent_task_id(taskDto.getParent_task_id());
             task.setActived_date(taskDto.getActived_date());
             task.setDue_date(taskDto.getDue_date());
             task.setEstimate_time(taskDto.getEstimate_time());
             task.setActived_date(taskDto.getActived_date());
             task.setDue_time_has(taskDto.getDue_time_has());
-            task.setPriority_id(taskDto.getPriority_id());
             task.setStart_time_has(taskDto.getStart_time_has());
             task.setStarted_date(taskDto.getStarted_date());
             task.setDue_time_has(taskDto.getDue_time_has());

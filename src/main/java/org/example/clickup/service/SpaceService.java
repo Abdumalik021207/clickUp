@@ -38,7 +38,6 @@ public class SpaceService {
         Space space = new Space();
         space.setName(spaceDto.getName());
         space.setColor(spaceDto.getColor());
-        space.setAccess_type(spaceDto.getAccess_type());
         space.setInitial_letter(spaceDto.getInitial_letter());
 
         Optional<User> byId = userRepo.findById(spaceDto.getOwner_id());
@@ -62,7 +61,6 @@ public class SpaceService {
             Space space = byId.get();
             space.setName(spaceDto.getName());
             space.setColor(spaceDto.getColor());
-            space.setAccess_type(spaceDto.getAccess_type());
             space.setInitial_letter(spaceDto.getInitial_letter());
 
             Optional<User> byId1 = userRepo.findById(spaceDto.getOwner_id());

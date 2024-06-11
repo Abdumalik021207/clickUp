@@ -26,7 +26,6 @@ public class UserService {
 
     public Result addUser(UserDto userDto) {
         User user = new User();
-        user.setAvatarId(userDto.getAvatarId());
         user.setEmail(userDto.getEmail());
         user.setColor(userDto.getColor());
         user.setPassword(userDto.getPassword());
@@ -40,7 +39,6 @@ public class UserService {
         Optional<User> byId = userRepo.findById(id);
         if (byId.isPresent()) {
             User user = byId.get();
-            user.setAvatarId(userDto.getAvatarId());
             user.setEmail(userDto.getEmail());
             user.setColor(userDto.getColor());
             user.setPassword(userDto.getPassword());
