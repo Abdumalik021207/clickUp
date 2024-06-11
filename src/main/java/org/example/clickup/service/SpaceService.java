@@ -84,5 +84,5 @@ public class SpaceService {
         spaceRepo.deleteById(id);
         return new Result(true,"Space deleted");
     }
-
+// niga
 }
