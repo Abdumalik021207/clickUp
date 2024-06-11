@@ -25,7 +25,7 @@ public class Task_dependencyController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Task_dependency getTask_dependency(@PathVariable Integer id) {
+    public Task_dependency getTask_dependency(@PathVariable Long id) {
         return task_dependencyService.getTask_dependency(id);
     }
 
@@ -35,13 +35,13 @@ public class Task_dependencyController {
     }
 
     @PutMapping("/{id}")
-    public Result updateTask_dependency(@PathVariable Integer id, @RequestBody Task_dependencyDto task_dependencyDto) {
+    public Result updateTask_dependency(@PathVariable Long id, @RequestBody Task_dependencyDto task_dependencyDto) {
         return task_dependencyService.updateTask_dependency(task_dependencyDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteTask_dependency(@PathVariable Integer id) {
+    public Result deleteTask_dependency(@PathVariable Long id) {
         return task_dependencyService.deleteTask_dependency(id);
     }
 

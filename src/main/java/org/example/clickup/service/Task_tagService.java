@@ -30,7 +30,7 @@ public class Task_tagService {
         return task_tagRepo.findAll();
     }
 
-    public Task_tag getTask_tag(Integer id) {
+    public Task_tag getTask_tag(Long id) {
         return task_tagRepo.findById(id).get();
     }
 
@@ -50,7 +50,7 @@ public class Task_tagService {
         return new Result(true,"Task tag created");
     }
 
-    public Result updateTask_tag(Task_tagDto task_tagDto, Integer id) {
+    public Result updateTask_tag(Task_tagDto task_tagDto, Long id) {
         Optional<Task_tag> byId = task_tagRepo.findById(id);
         if (byId.isPresent()) {
             Task_tag taskTag = byId.get();
@@ -70,7 +70,7 @@ public class Task_tagService {
         return new Result(false,"Task tag not found");
     }
 
-    public Result deleteTask_tag(Integer id) {
+    public Result deleteTask_tag(Long id) {
         task_tagRepo.deleteById(id);
         return new Result(true,"Task tag deleted");
     }

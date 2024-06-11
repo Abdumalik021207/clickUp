@@ -20,7 +20,7 @@ public class AttachmentService {
         return attachmentRepo.findAll();
     }
 
-    public Attachmet readById(Integer id) {
+    public Attachmet readById(Long id) {
         return attachmentRepo.findById(id).get();
     }
 
@@ -34,7 +34,7 @@ public class AttachmentService {
         return new Result(true, "Successfully created");
     }
 
-    public Result update(AttachmetDto attachmetDto, Integer id) {
+    public Result update(AttachmetDto attachmetDto, Long id) {
         Optional<Attachmet> byId = attachmentRepo.findById(id);
         if (byId.isPresent()) {
             Attachmet attachmet = byId.get();
@@ -48,7 +48,7 @@ public class AttachmentService {
         return new Result(false, "Attachmet not found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         attachmentRepo.deleteById(id);
         return new Result(true, "Successfully deleted");
     }

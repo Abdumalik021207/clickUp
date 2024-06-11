@@ -25,11 +25,17 @@ public class WorkspaceService {
         return workspaceRepo.findAll();
     }
 
-    public Workspace getWorkspaceById(Integer id) {
+    public Workspace getWorkspaceById(Long id) {
         return workspaceRepo.findById(id).get();
     }
 
     public Result createWorkspace(WorkspaceDto workspaceDto) {
+
+        boolean byName = workspaceRepo.existsByName(workspaceDto.getName());
+        if (byName) {
+            return new Result(false, "Workspace with name " + workspaceDto.getName() + " already exists");
+        }
+
         Workspace workspace = new Workspace();
         workspace.setName(workspaceDto.getName());
         workspace.setColor(workspaceDto.getColor());
@@ -44,7 +50,7 @@ public class WorkspaceService {
         return new Result(true, "Workspace created");
     }
 
-    public Result updateWorkspace(WorkspaceDto workspaceDto, Integer id) {
+    public Result updateWorkspace(WorkspaceDto workspaceDto, Long id) {
         Optional<Workspace> byId = workspaceRepo.findById(id);
         if (byId.isPresent()) {
             Workspace workspace = byId.get();
@@ -63,7 +69,7 @@ public class WorkspaceService {
         return new Result(false, "Workspace not found");
     }
 
-    public Result deleteWorkspace(Integer id) {
+    public Result deleteWorkspace(Long id) {
         workspaceRepo.deleteById(id);
         return new Result(true, "Workspace deleted");
     }

@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Task_dependencyDto {
 
-    private Integer task_id;
-    private Integer dependency_task_id;
+    private Long task_id;
+    private Long dependency_task_id;
     private String dependency_type;
 
 }

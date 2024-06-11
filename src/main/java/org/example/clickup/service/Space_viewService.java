@@ -30,7 +30,7 @@ public class Space_viewService {
         return space_viewRepo.findAll();
     }
 
-    public Space_view getSpaceById(Integer id) {
+    public Space_view getSpaceById(Long id) {
         return space_viewRepo.findById(id).get();
     }
 
@@ -49,7 +49,7 @@ public class Space_viewService {
         return new Result(true,"Successfully created space view");
     }
 
-    public Result update(Space_viewDto space_viewDto, Integer id) {
+    public Result update(Space_viewDto space_viewDto, Long id) {
         Optional<Space_view> byId = space_viewRepo.findById(id);
         if (byId.isPresent()) {
             Space_view spaceView = byId.get();
@@ -68,7 +68,7 @@ public class Space_viewService {
         return new Result(false,"Not found space view");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         space_viewRepo.deleteById(id);
         return new Result(true,"Successfully deleted space view");
     }

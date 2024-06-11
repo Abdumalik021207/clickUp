@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class Check_listDto {
 
     private String name;
-    private Integer task_id;
+    private Long task_id;
 
 }

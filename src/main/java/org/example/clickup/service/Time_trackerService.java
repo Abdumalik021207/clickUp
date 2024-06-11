@@ -25,7 +25,7 @@ public class Time_trackerService {
         return time_trackerRepo.findAll();
     }
 
-    public Time_tracker getById(Integer id) {
+    public Time_tracker getById(Long id) {
         return time_trackerRepo.findById(id).get();
     }
 
@@ -42,7 +42,7 @@ public class Time_trackerService {
         return new Result(true,"Time tracker created");
     }
 
-    public Result update(Time_trackerDto time_trackerDto, Integer id) {
+    public Result update(Time_trackerDto time_trackerDto, Long id) {
         Optional<Time_tracker> byId = time_trackerRepo.findById(id);
         if (byId.isPresent()) {
             Time_tracker timeTracker = byId.get();
@@ -59,7 +59,7 @@ public class Time_trackerService {
         return new Result(false,"Time tracker not found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         time_trackerRepo.deleteById(id);
         return new Result(true,"Time tracker deleted");
     }

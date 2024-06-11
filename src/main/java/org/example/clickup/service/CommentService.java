@@ -25,7 +25,7 @@ public class CommentService {
         return commentRepo.findAll();
     }
 
-    public Comment readComment(Integer id) {
+    public Comment readComment(Long id) {
         return commentRepo.findById(id).get();
     }
 
@@ -42,7 +42,7 @@ public class CommentService {
         return new Result(false, "Task does not exist");
     }
 
-    public Result updateComment(Integer id, CommentDto commentDto) {
+    public Result updateComment(Long id, CommentDto commentDto) {
         Optional<Comment> byId = commentRepo.findById(id);
         if (byId.isPresent()) {
             Comment comment = byId.get();
@@ -60,7 +60,7 @@ public class CommentService {
         return new Result(false, "Task does not exist");
     }
 
-    public Result deleteComment(Integer id) {
+    public Result deleteComment(Long id) {
         commentRepo.deleteById(id);
         return new Result(true, "Comment deleted");
     }

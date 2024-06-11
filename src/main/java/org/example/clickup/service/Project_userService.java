@@ -30,7 +30,7 @@ public class Project_userService {
         return project_userRepo.findAll();
     }
 
-    public Project_user findById(Integer id) {
+    public Project_user findById(Long id) {
         return project_userRepo.findById(id).get();
     }
 
@@ -54,7 +54,7 @@ public class Project_userService {
         return new Result(true,"Successfully Saved");
     }
 
-    public Result update(Project_userDto project_userDto, Integer id) {
+    public Result update(Project_userDto project_userDto, Long id) {
         Optional<Project_user> byId = project_userRepo.findById(id);
         if (byId.isPresent()) {
             Project_user project_user = byId.get();
@@ -77,7 +77,7 @@ public class Project_userService {
         return new Result(false,"Not Found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         project_userRepo.deleteById(id);
         return new Result(true,"Successfully Deleted");
     }

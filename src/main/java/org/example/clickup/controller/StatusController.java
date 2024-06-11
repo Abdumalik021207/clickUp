@@ -25,7 +25,7 @@ public class StatusController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Status getStatus(@PathVariable Integer id) {
+    public Status getStatus(@PathVariable Long id) {
         return statusService.getStatus(id);
     }
 
@@ -35,13 +35,13 @@ public class StatusController {
     }
 
     @PutMapping("/{id}")
-    public Result updateStatus(@PathVariable Integer id, @RequestBody StatusDto statusDto) {
+    public Result updateStatus(@PathVariable Long id, @RequestBody StatusDto statusDto) {
         return statusService.updateStatus(id, statusDto);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteStatus(@PathVariable Integer id) {
+    public Result deleteStatus(@PathVariable Long id) {
         return statusService.deleteStatus(id);
     }
 

@@ -25,7 +25,7 @@ public class Space_click_appsController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Space_click_apps getSpace_click_apps(@PathVariable Integer id) {
+    public Space_click_apps getSpace_click_apps(@PathVariable Long id) {
         return space_click_appsService.getSpace_click_apps(id);
     }
 
@@ -35,13 +35,13 @@ public class Space_click_appsController {
     }
 
     @PutMapping("/{id}")
-    public Result updateSpace_click_apps(@PathVariable Integer id, @RequestBody Space_click_appsDto spaceClickAppsDto) {
+    public Result updateSpace_click_apps(@PathVariable Long id, @RequestBody Space_click_appsDto spaceClickAppsDto) {
         return space_click_appsService.update(spaceClickAppsDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteSpace_click_apps(@PathVariable Integer id) {
+    public Result deleteSpace_click_apps(@PathVariable Long id) {
         return space_click_appsService.delete(id);
     }
 

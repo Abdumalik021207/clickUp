@@ -25,7 +25,7 @@ public class Workspace_permissionService {
         return repo.findAll();
     }
 
-    public Workspace_permission getPermissionById(Integer id) {
+    public Workspace_permission getPermissionById(Long id) {
         return repo.findById(id).get();
     }
 
@@ -41,7 +41,7 @@ public class Workspace_permissionService {
         return new Result(true,"Permission created");
     }
 
-    public Result updatePermission(Integer id, Workspace_permissionDto permissionDto) {
+    public Result updatePermission(Long id, Workspace_permissionDto permissionDto) {
         Optional<Workspace_permission> byId = repo.findById(id);
         if (byId.isPresent()) {
             Workspace_permission workspacePermission = byId.get();
@@ -57,7 +57,7 @@ public class Workspace_permissionService {
         return new Result(false,"Permission not found");
     }
 
-    public Result deletePermission(Integer id) {
+    public Result deletePermission(Long id) {
         repo.deleteById(id);
         return new Result(true,"Permission deleted");
     }

@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 public class ViewDto {
 
     private String name;
-    private Integer icon_id;
+    private Long icon_id;
 
 }

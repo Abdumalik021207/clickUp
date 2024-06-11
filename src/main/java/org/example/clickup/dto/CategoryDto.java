@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class CategoryDto {
 
     private String name;
-    private Integer projectId;
+    private Long projectId;
     private String acces_type;
     private boolean archived;
     private String color;

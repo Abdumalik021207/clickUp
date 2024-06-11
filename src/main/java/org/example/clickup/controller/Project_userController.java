@@ -25,7 +25,7 @@ public class Project_userController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Project_user getProject_user(@PathVariable Integer id) {
+    public Project_user getProject_user(@PathVariable Long id) {
         return project_userService.findById(id);
     }
 
@@ -35,13 +35,13 @@ public class Project_userController {
     }
 
     @PutMapping("/{id}")
-    public Result updateProject_user(@PathVariable Integer id, @RequestBody Project_userDto project_userDto) {
+    public Result updateProject_user(@PathVariable Long id, @RequestBody Project_userDto project_userDto) {
         return project_userService.update(project_userDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteProject_user(@PathVariable Integer id) {
+    public Result deleteProject_user(@PathVariable Long id) {
         return project_userService.delete(id);
     }
 }

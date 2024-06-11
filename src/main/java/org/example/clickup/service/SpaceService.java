@@ -30,7 +30,7 @@ public class SpaceService {
         return spaceRepo.findAll();
     }
 
-    public Space getSpace(Integer id) {
+    public Space getSpace(Long id) {
         return spaceRepo.findById(id).get();
     }
 
@@ -56,7 +56,7 @@ public class SpaceService {
         return new Result(true,"Space created");
     }
 
-    public Result updateSpace(SpaceDto spaceDto, Integer id) {
+    public Result updateSpace(SpaceDto spaceDto, Long id) {
         Optional<Space> byId = spaceRepo.findById(id);
         if (byId.isPresent()) {
             Space space = byId.get();
@@ -82,7 +82,7 @@ public class SpaceService {
         return new Result(false,"Space not found");
     }
 
-    public Result deleteSpace(Integer id) {
+    public Result deleteSpace(Long id) {
         spaceRepo.deleteById(id);
         return new Result(true,"Space deleted");
     }

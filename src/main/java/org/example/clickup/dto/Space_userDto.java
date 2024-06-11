@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Space_userDto {
 
-    private Integer space_id;
-    private Integer member_id;
+    private Long space_id;
+    private Long member_id;
 
 }

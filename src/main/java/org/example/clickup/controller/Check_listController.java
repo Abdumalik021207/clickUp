@@ -25,7 +25,7 @@ public class Check_listController {
     }
 
     @GetMapping("/{id}")
-    public Check_list getCheck_listById(@PathVariable Integer id) {
+    public Check_list getCheck_listById(@PathVariable Long id) {
         return check_listService.getCheck_listById(id);
     }
 
@@ -35,13 +35,13 @@ public class Check_listController {
     }
 
     @PutMapping("/{id}")
-    public Result updateCheck_list(@PathVariable Integer id, @RequestBody Check_listDto check_listDto) {
+    public Result updateCheck_list(@PathVariable Long id, @RequestBody Check_listDto check_listDto) {
         return check_listService.updateCheck_list(check_listDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteCheck_list(@PathVariable Integer id) {
+    public Result deleteCheck_list(@PathVariable Long id) {
         return check_listService.deleteCheck_list(id);
     }
 

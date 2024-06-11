@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 public class Check_list_itemDto {
 
     private String name;
-    private Integer check_list_id;
+    private Long check_list_id;
     private boolean resolved;
-    private Integer assigned_user_id;
+    private Long assigned_user_id;
 
 }

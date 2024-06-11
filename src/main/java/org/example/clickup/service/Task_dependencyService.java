@@ -25,13 +25,12 @@ public class Task_dependencyService {
         return task_dependencyRepo.findAll();
     }
 
-    public Task_dependency getTask_dependency(Integer id) {
+    public Task_dependency getTask_dependency(Long id) {
         return task_dependencyRepo.findById(id).get();
     }
 
     public Result createTask_dependency(Task_dependencyDto task_dependencyDto) {
         Task_dependency taskDependency = new Task_dependency();
-        taskDependency.setDependency_task_id(task_dependencyDto.getDependency_task_id());
         taskDependency.setDependency_type(task_dependencyDto.getDependency_type());
         task_dependencyRepo.save(taskDependency);
         Optional<Task> byId = taskRepo.findById(task_dependencyDto.getDependency_task_id());
@@ -43,11 +42,10 @@ public class Task_dependencyService {
         return new Result(true,"Task dependency created");
     }
 
-    public Result updateTask_dependency(Task_dependencyDto task_dependencyDto, Integer id) {
+    public Result updateTask_dependency(Task_dependencyDto task_dependencyDto, Long id) {
         Optional<Task_dependency> byId = task_dependencyRepo.findById(id);
         if (byId.isPresent()) {
             Task_dependency taskDependency = byId.get();
-            taskDependency.setDependency_task_id(task_dependencyDto.getDependency_task_id());
             taskDependency.setDependency_type(task_dependencyDto.getDependency_type());
             task_dependencyRepo.save(taskDependency);
             Optional<Task> byTaskId = taskRepo.findById(task_dependencyDto.getTask_id());
@@ -61,7 +59,7 @@ public class Task_dependencyService {
         return new Result(false,"Task dependency not found");
     }
 
-    public Result deleteTask_dependency(Integer id) {
+    public Result deleteTask_dependency(Long id) {
         task_dependencyRepo.deleteById(id);
         return new Result(true,"Task dependency deleted");
     }

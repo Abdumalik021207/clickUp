@@ -14,9 +14,9 @@ public class TaskDto {
 
     private String name;
     private String description;
-    private Integer status_id;
-    private Integer priority_id;
-    private Integer parent_task_id;
+    private Long status_id;
+    private Long priority_id;
+    private Long parent_task_id;
     private Timestamp started_date;
     private Timestamp start_time_has;
     private Timestamp due_date;

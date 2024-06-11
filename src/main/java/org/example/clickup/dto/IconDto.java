@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IconDto {
 
-    private Integer attachment_id;
+    private Long attachment_id;
     private String color;
     private String innitial_letter;
-    private Integer icon;
+    private Long icon;
 
 }

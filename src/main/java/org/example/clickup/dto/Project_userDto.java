@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Project_userDto {
 
-    private Integer project_id;
-    private Integer user_id;
+    private Long project_id;
+    private Long user_id;
     private String task_permission;
 
 }

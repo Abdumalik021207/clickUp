@@ -25,7 +25,7 @@ public class TagController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Tag getTag(@PathVariable Integer id) {
+    public Tag getTag(@PathVariable Long id) {
         return tagService.getTagById(id);
     }
 
@@ -35,13 +35,13 @@ public class TagController {
     }
 
     @PutMapping("/{id}")
-    public Result updateTag(@PathVariable Integer id, @RequestBody TagDto tagDto) {
+    public Result updateTag(@PathVariable Long id, @RequestBody TagDto tagDto) {
         return tagService.updateTag(tagDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteTag(@PathVariable Integer id) {
+    public Result deleteTag(@PathVariable Long id) {
         return tagService.deleteTag(id);
     }
 

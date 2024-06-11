@@ -25,7 +25,7 @@ public class ViewService {
         return viewRepo.findAll();
     }
 
-    public View getView(Integer id) {
+    public View getView(Long id) {
         return viewRepo.findById(id).get();
     }
 
@@ -41,7 +41,7 @@ public class ViewService {
         return new Result(true,"Successfully craeted view");
     }
 
-    public Result updateView(ViewDto viewDto,Integer id) {
+    public Result updateView(ViewDto viewDto,Long id) {
         Optional<View> byId = viewRepo.findById(id);
         if (byId.isPresent()) {
             View view = byId.get();
@@ -57,7 +57,7 @@ public class ViewService {
         return new Result(false,"No found view");
     }
 
-    public Result deleteView(Integer id) {
+    public Result deleteView(Long id) {
         viewRepo.deleteById(id);
         return new Result(true,"Successfully deleted view");
     }

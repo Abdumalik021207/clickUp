@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Workspace_permissionDto {
 
-    private Integer workspace_role_id;
+    private Long workspace_role_id;
     private String permission;
 
 }

@@ -25,7 +25,7 @@ public class Task_historyController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Task_history getTask_history(@PathVariable Integer id) {
+    public Task_history getTask_history(@PathVariable Long id) {
         return task_historyService.findById(id);
     }
 
@@ -35,13 +35,13 @@ public class Task_historyController {
     }
 
     @PutMapping("/{id}")
-    public Result updateTask_history(@PathVariable Integer id, @RequestBody Task_historyDto dto) {
+    public Result updateTask_history(@PathVariable Long id, @RequestBody Task_historyDto dto) {
         return task_historyService.update(dto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteTask_history(@PathVariable Integer id) {
+    public Result deleteTask_history(@PathVariable Long id) {
         return task_historyService.delete(id);
     }
 

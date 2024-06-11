@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Task_userDto {
 
-    private Integer task_id;
-    private Integer user_id;
+    private Long task_id;
+    private Long user_id;
 
 }

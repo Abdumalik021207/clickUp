@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Time_trackerDto {
 
-    private Integer task_id;
+    private Long task_id;
     private Timestamp started_time;
     private Timestamp stopped_time;
 

@@ -30,7 +30,7 @@ public class Space_click_appsService {
         return space_click_appsRepo.findAll();
     }
 
-    public Space_click_apps getSpace_click_apps(Integer id) {
+    public Space_click_apps getSpace_click_apps(Long id) {
         return space_click_appsRepo.findById(id).get();
     }
 
@@ -51,7 +51,7 @@ public class Space_click_appsService {
         return new Result(true,"Successfully created space click apps");
     }
 
-    public Result update(Space_click_appsDto space_click_appsDto, Integer id) {
+    public Result update(Space_click_appsDto space_click_appsDto, Long id) {
         Optional<Space_click_apps> byId = space_click_appsRepo.findById(id);
         if (byId.isPresent()) {
             Space_click_apps spaceClickApps = byId.get();
@@ -72,7 +72,7 @@ public class Space_click_appsService {
         return new Result(false,"Not found space click apps");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         space_click_appsRepo.deleteById(id);
         return new Result(true,"Successfully deleted space click apps");
     }

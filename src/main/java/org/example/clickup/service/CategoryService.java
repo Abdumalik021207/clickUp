@@ -25,7 +25,7 @@ public class CategoryService {
         return categoryRepo.findAll();
     }
 
-    public Category getCategoryById(Integer id) {
+    public Category getCategoryById(Long id) {
         return categoryRepo.findById(id).get();
     }
 
@@ -43,7 +43,7 @@ public class CategoryService {
         return new Result(true,"Created successfully");
     }
 
-    public Result updateCategory(CategoryDto categoryDto, Integer id) {
+    public Result updateCategory(CategoryDto categoryDto, Long id) {
         Optional<Category> byId = categoryRepo.findById(id);
         Category category = byId.get();
 
@@ -61,7 +61,7 @@ public class CategoryService {
         return new Result(true,"Updated successfully");
     }
 
-    public Result deleteCategory(Integer id) {
+    public Result deleteCategory(Long id) {
         categoryRepo.deleteById(id);
         return new Result(true,"Deleted successfully");
     }

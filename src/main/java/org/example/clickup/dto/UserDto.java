@@ -15,6 +15,6 @@ public class UserDto {
     private String password;
     private String color;
     private String initial_letter;
-    private Integer avatarId;
+    private Long avatarId;
 
 }

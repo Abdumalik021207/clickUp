@@ -20,7 +20,7 @@ public class UserService {
         return userRepo.findAll();
     }
 
-    public User getUserById(Integer id) {
+    public User getUserById(Long id) {
         return userRepo.findById(id).get();
     }
 
@@ -36,7 +36,7 @@ public class UserService {
         return new Result(true,"Successfully added user");
     }
 
-    public Result updateUser(UserDto userDto, Integer id) {
+    public Result updateUser(UserDto userDto, Long id) {
         Optional<User> byId = userRepo.findById(id);
         if (byId.isPresent()) {
             User user = byId.get();
@@ -52,7 +52,7 @@ public class UserService {
         return new Result(false,"User not found");
     }
 
-    public Result deleteUser(Integer id) {
+    public Result deleteUser(Long id) {
         userRepo.deleteById(id);
         return new Result(true,"Successfully deleted user");
     }

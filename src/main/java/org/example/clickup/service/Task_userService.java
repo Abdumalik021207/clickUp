@@ -30,7 +30,7 @@ public class Task_userService {
         return task_userRepo.findAll();
     }
 
-    public Task_user findById(Integer id) {
+    public Task_user findById(Long id) {
         return task_userRepo.findById(id).get();
     }
 
@@ -50,7 +50,7 @@ public class Task_userService {
         return new Result(true,"Successfully created");
     }
 
-    public Result update(Task_userDto task_userDto, Integer id) {
+    public Result update(Task_userDto task_userDto, Long id) {
         Optional<Task_user> byId = task_userRepo.findById(id);
         if (byId.isPresent()) {
             Task_user taskUser = byId.get();
@@ -70,7 +70,7 @@ public class Task_userService {
         return new Result(false,"Not found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         task_userRepo.deleteById(id);
         return new Result(true,"Successfully deleted");
     }

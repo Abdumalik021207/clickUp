@@ -25,7 +25,7 @@ public class Space_viewController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Space_view readByID(@PathVariable Integer id) {
+    public Space_view readByID(@PathVariable Long id) {
         return space_viewService.getSpaceById(id);
     }
 
@@ -35,13 +35,13 @@ public class Space_viewController {
     }
 
     @PutMapping("/{id}")
-    public Result update(@PathVariable Integer id, @RequestBody Space_viewDto space_viewDto) {
+    public Result update(@PathVariable Long id, @RequestBody Space_viewDto space_viewDto) {
         return space_viewService.update(space_viewDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result delete(@PathVariable Integer id) {
+    public Result delete(@PathVariable Long id) {
         return space_viewService.delete(id);
     }
 

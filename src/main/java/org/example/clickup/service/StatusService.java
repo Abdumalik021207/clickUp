@@ -31,7 +31,7 @@ public class StatusService {
         return statusRepo.findAll();
     }
 
-    public Status getStatus(Integer id) {
+    public Status getStatus(Long id) {
         return statusRepo.findById(id).get();
     }
 
@@ -63,7 +63,7 @@ public class StatusService {
         return new Result(true,"Successfully added status");
     }
 
-    public Result updateStatus(Integer id, StatusDto statusDto) {
+    public Result updateStatus(Long id, StatusDto statusDto) {
         Optional<Status> byId = statusRepo.findById(id);
         if (byId.isPresent()) {
             Status status = byId.get();
@@ -94,7 +94,7 @@ public class StatusService {
         return new Result(false,"Not found status");
     }
 
-    public Result deleteStatus(Integer id) {
+    public Result deleteStatus(Long id) {
         statusRepo.deleteById(id);
         return new Result(true,"Successfully deleted status");
     }

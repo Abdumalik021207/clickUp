@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Workspace_userDto {
 
-    private Integer workspace_id;
-    private Integer user_id;
+    private Long workspace_id;
+    private Long user_id;
     private String workspace_role_id;
     private Timestamp date_invited;
     private Timestamp date_joined;

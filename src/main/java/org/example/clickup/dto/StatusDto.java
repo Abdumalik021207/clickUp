@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 public class StatusDto {
 
     private String name;
-    private Integer space_id;
-    private Integer project_id;
-    private Integer category_id;
+    private Long space_id;
+    private Long project_id;
+    private Long category_id;
     private String color;
     private String type;
 

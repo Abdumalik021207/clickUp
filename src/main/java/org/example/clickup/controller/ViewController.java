@@ -25,7 +25,7 @@ public class ViewController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public View getView(@PathVariable Integer id) {
+    public View getView(@PathVariable Long id) {
         return viewService.getView(id);
     }
 
@@ -35,13 +35,13 @@ public class ViewController {
     }
 
     @PutMapping("/{id}")
-    public Result update(@PathVariable Integer id, @RequestBody ViewDto viewDto) {
+    public Result update(@PathVariable Long id, @RequestBody ViewDto viewDto) {
         return viewService.updateView(viewDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result delete(@PathVariable Integer id) {
+    public Result delete(@PathVariable Long id) {
         return viewService.deleteView(id);
     }
 

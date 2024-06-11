@@ -12,6 +12,6 @@ public class TagDto {
 
     private String name;
     private String color;
-    private Integer workspaceId;
+    private Long workspaceId;
 
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Space_click_appsDto {
 
-    private Integer space_id;
-    private Integer click_apps_id;
+    private Long space_id;
+    private Long click_apps_id;
 
 }

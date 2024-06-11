@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class WorkspaceDto {
     private String name;
     private String color;
-    private Integer owner_id;
+    private Long owner_id;
     private String initial_letter;
-    private Integer avatar_id;
+    private Long avatar_id;
 }

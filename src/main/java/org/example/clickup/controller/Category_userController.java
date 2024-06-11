@@ -25,7 +25,7 @@ public class Category_userController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Category_user getCategory_user(@PathVariable Integer id) {
+    public Category_user getCategory_user(@PathVariable Long id) {
         return category_userService.findById(id);
     }
 
@@ -35,13 +35,13 @@ public class Category_userController {
     }
 
     @PutMapping("/{id}")
-    public Result updateCategory_user(@PathVariable Integer id, @RequestBody Category_userDto category_user) {
+    public Result updateCategory_user(@PathVariable Long id, @RequestBody Category_userDto category_user) {
         return category_userService.update(category_user, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteCategory_user(@PathVariable Integer id) {
+    public Result deleteCategory_user(@PathVariable Long id) {
         return category_userService.delete(id);
     }
 

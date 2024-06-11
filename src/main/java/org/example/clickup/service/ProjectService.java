@@ -25,7 +25,7 @@ public class ProjectService {
         return projectRepo.findAll();
     }
 
-    public Project getProjectById(Integer id) {
+    public Project getProjectById(Long id) {
         return projectRepo.findById(id).get();
     }
 
@@ -44,7 +44,7 @@ public class ProjectService {
         return new Result(true,"Successfully added project");
     }
 
-    public Result updateProject(Integer id, ProjectDto projectDto) {
+    public Result updateProject(Long id, ProjectDto projectDto) {
         Optional<Project> byId = projectRepo.findById(id);
         if (byId.isPresent()) {
             Project project = byId.get();
@@ -62,7 +62,7 @@ public class ProjectService {
         return new Result(true,"Successfully updated project");
     }
 
-    public Result deleteProject(Integer id) {
+    public Result deleteProject(Long id) {
         projectRepo.deleteById(id);
         return new Result(true,"Successfully deleted project");
     }

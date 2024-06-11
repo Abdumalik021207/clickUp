@@ -25,7 +25,7 @@ public class Workspace_roleService {
         return workspace_roleRepo.findAll();
     }
 
-    public Workspace_role getWorkspaceRoleById(Integer id) {
+    public Workspace_role getWorkspaceRoleById(Long id) {
         return workspace_roleRepo.findById(id).get();
     }
 
@@ -42,7 +42,7 @@ public class Workspace_roleService {
         return new Result(true,"Workspace role created");
     }
 
-    public Result update(Workspace_roleDto workspace_roleDto, Integer id) {
+    public Result update(Workspace_roleDto workspace_roleDto, Long id) {
         Optional<Workspace_role> byId = workspace_roleRepo.findById(id);
         if (byId.isPresent()) {
             Workspace_role workspaceRole = byId.get();
@@ -59,7 +59,7 @@ public class Workspace_roleService {
         return new Result(false,"Workspace role not found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         workspace_roleRepo.deleteById(id);
         return new Result(true,"Workspace role deleted");
     }

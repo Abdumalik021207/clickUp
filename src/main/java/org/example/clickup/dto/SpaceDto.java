@@ -12,10 +12,10 @@ public class SpaceDto {
 
     private String name;
     private String color;
-    private Integer workspace_id;
+    private Long workspace_id;
     private String initial_letter;
-    private Integer icon_id;
-    private Integer owner_id;
-    private Integer access_type;
+    private Long icon_id;
+    private Long owner_id;
+    private Long access_type;
 
 }

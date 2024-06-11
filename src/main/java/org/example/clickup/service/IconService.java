@@ -25,7 +25,7 @@ public class IconService {
         return iconRepo.findAll();
     }
 
-    public Icon getIconById(Integer id) {
+    public Icon getIconById(Long id) {
         return iconRepo.findById(id).get();
     }
 
@@ -46,7 +46,7 @@ public class IconService {
         return new Result(false,"Create Icon failed");
     }
 
-    public Result updateIcon(IconDto iconDto, Integer id) {
+    public Result updateIcon(IconDto iconDto, Long id) {
         Optional<Icon> byId = iconRepo.findById(id);
         if (byId.isPresent()) {
             Icon icon = byId.get();
@@ -66,7 +66,7 @@ public class IconService {
         return new Result(false,"Update Icon failed");
     }
 
-    public Result deleteIcon(Integer id) {
+    public Result deleteIcon(Long id) {
         iconRepo.deleteById(id);
         return new Result(true,"Delete Icon successfully");
     }

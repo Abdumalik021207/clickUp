@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 public class CommentDto {
 
     private String name;
-    @Column(nullable = false)
-    private Integer task_id;
+    private Long task_id;
 
 }

@@ -30,7 +30,7 @@ public class Check_list_itemService {
         return check_list_itemRepo.findAll();
     }
 
-    public Check_list_item getCheck_list_itemById(Integer id) {
+    public Check_list_item getCheck_list_itemById(Long id) {
         return check_list_itemRepo.findById(id).get();
     }
 
@@ -52,7 +52,7 @@ public class Check_list_itemService {
         return new Result(true,"Successfully created check_list_item");
     }
 
-    public Result updateCheck_list_item(Check_list_itemDto check_list_itemDto, Integer id) {
+    public Result updateCheck_list_item(Check_list_itemDto check_list_itemDto, Long id) {
         Optional<Check_list_item> byId = check_list_itemRepo.findById(id);
         if (byId.isPresent()) {
             Check_list_item checkListItem = byId.get();
@@ -74,7 +74,7 @@ public class Check_list_itemService {
         return new Result(false,"Check_list_item not found");
     }
 
-    public Result deleteCheck_list_item(Integer id) {
+    public Result deleteCheck_list_item(Long id) {
         check_list_itemRepo.deleteById(id);
         return new Result(true,"Successfully deleted check_list_item");
     }

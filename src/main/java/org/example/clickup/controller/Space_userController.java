@@ -25,7 +25,7 @@ public class Space_userController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Space_user getSpace_user(@PathVariable Integer id) {
+    public Space_user getSpace_user(@PathVariable Long id) {
         return space_userService.findById(id);
     }
 
@@ -35,13 +35,13 @@ public class Space_userController {
     }
 
     @PutMapping("/{id}")
-    public Result updateSpace_user(@PathVariable Integer id, @RequestBody Space_userDto space_userDto) {
+    public Result updateSpace_user(@PathVariable Long id, @RequestBody Space_userDto space_userDto) {
         return space_userService.update(space_userDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteSpace_user(@PathVariable Integer id) {
+    public Result deleteSpace_user(@PathVariable Long id) {
         return space_userService.delete(id);
     }
 

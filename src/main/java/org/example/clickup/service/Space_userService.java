@@ -25,7 +25,7 @@ public class Space_userService {
         return space_userRepo.findAll();
     }
 
-    public Space_user findById(Integer id) {
+    public Space_user findById(Long id) {
         return space_userRepo.findById(id).get();
     }
 
@@ -40,7 +40,7 @@ public class Space_userService {
         return new Result(true,"Successfully saved space user");
     }
 
-    public Result update(Space_userDto space_userDto, Integer id) {
+    public Result update(Space_userDto space_userDto, Long id) {
         Optional<Space> byId = spaceRepo.findById(id);
         if (byId.isPresent()) {
             Space space = byId.get();
@@ -51,7 +51,7 @@ public class Space_userService {
         return new Result(true,"Successfully updated space user");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         space_userRepo.deleteById(id);
         return new Result(true,"Successfully deleted space user");
     }

@@ -25,7 +25,7 @@ public class ProjectController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Project getProjectById(@PathVariable Integer id) {
+    public Project getProjectById(@PathVariable Long id) {
         return projectService.getProjectById(id);
     }
 
@@ -35,13 +35,13 @@ public class ProjectController {
     }
 
     @PutMapping("/{id}")
-    public Result updateProject(@PathVariable Integer id, @RequestBody ProjectDto projectDto) {
+    public Result updateProject(@PathVariable Long id, @RequestBody ProjectDto projectDto) {
         return projectService.updateProject(id, projectDto);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteProject(@PathVariable Integer id) {
+    public Result deleteProject(@PathVariable Long id) {
         return projectService.deleteProject(id);
     }
 

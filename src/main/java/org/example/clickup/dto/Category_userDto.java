@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 public class Category_userDto {
 
     private String name;
-    private Integer category_id;
-    private Integer user_id;
+    private Long category_id;
+    private Long user_id;
     private String task_permission;
 
 }

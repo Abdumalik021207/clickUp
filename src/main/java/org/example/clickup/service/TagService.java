@@ -25,7 +25,7 @@ public class TagService {
         return tagRepo.findAll();
     }
 
-    public Tag getTagById(Integer id) {
+    public Tag getTagById(Long id) {
         return tagRepo.findById(id).get();
     }
 
@@ -43,7 +43,7 @@ public class TagService {
         return new Result(true,"Successfully created tag");
     }
 
-    public Result updateTag(TagDto tagDto, Integer id) {
+    public Result updateTag(TagDto tagDto, Long id) {
         Optional<Tag> byId = tagRepo.findById(id);
         if (byId.isPresent()) {
             Tag tag = byId.get();
@@ -61,7 +61,7 @@ public class TagService {
         return new Result(false,"Not found tag");
     }
 
-    public Result deleteTag(Integer id) {
+    public Result deleteTag(Long id) {
         tagRepo.deleteById(id);
         return new Result(true,"Successfully deleted tag");
     }

@@ -25,7 +25,7 @@ public class IconController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Icon getIcon(@PathVariable Integer id) {
+    public Icon getIcon(@PathVariable Long id) {
         return iconService.getIconById(id);
     }
 
@@ -35,13 +35,13 @@ public class IconController {
     }
 
     @PutMapping("/{id}")
-    public Result updateIcon(@PathVariable Integer id, @RequestBody IconDto iconDto) {
+    public Result updateIcon(@PathVariable Long id, @RequestBody IconDto iconDto) {
         return iconService.updateIcon(iconDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteIcon(@PathVariable Integer id) {
+    public Result deleteIcon(@PathVariable Long id) {
         return iconService.deleteIcon(id);
     }
 

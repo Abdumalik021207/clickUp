@@ -25,7 +25,7 @@ public class AttachmentController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Attachmet getAttachment(@PathVariable Integer id) {
+    public Attachmet getAttachment(@PathVariable Long id) {
         return attachmentService.readById(id);
     }
 
@@ -35,13 +35,13 @@ public class AttachmentController {
     }
 
     @PutMapping("/{id}")
-    public Result updateAttachment(@PathVariable Integer id, @RequestBody AttachmetDto attachmetDto) {
+    public Result updateAttachment(@PathVariable Long id, @RequestBody AttachmetDto attachmetDto) {
         return attachmentService.update(attachmetDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteAttachment(@PathVariable Integer id) {
+    public Result deleteAttachment(@PathVariable Long id) {
         return attachmentService.delete(id);
     }
 

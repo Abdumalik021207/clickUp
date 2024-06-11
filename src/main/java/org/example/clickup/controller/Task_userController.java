@@ -25,7 +25,7 @@ public class Task_userController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Task_user getTask_user(@PathVariable Integer id) {
+    public Task_user getTask_user(@PathVariable Long id) {
         return task_userService.findById(id);
     }
 
@@ -35,13 +35,13 @@ public class Task_userController {
     }
 
     @PutMapping("/{id}")
-    public Result updateTask_user(@PathVariable Integer id, @RequestBody Task_userDto task_userDto) {
+    public Result updateTask_user(@PathVariable Long id, @RequestBody Task_userDto task_userDto) {
         return task_userService.update(task_userDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteTask_user(@PathVariable Integer id) {
+    public Result deleteTask_user(@PathVariable Long id) {
         return task_userService.delete(id);
     }
 

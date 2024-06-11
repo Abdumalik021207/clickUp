@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Workspace_roleDto {
 
-    private Integer workspace_id;
+    private Long workspace_id;
     private String name;
     private String extends_role;
 

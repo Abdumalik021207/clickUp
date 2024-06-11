@@ -25,7 +25,7 @@ public class TaskService {
         return taskRepo.findAll();
     }
 
-    public Task getTaskById(Integer id) {
+    public Task getTaskById(Long id) {
         return taskRepo.findById(id).get();
     }
 
@@ -51,7 +51,7 @@ public class TaskService {
         return new Result(true,"Task created successfully");
     }
 
-    public Result updateTask(TaskDto taskDto, Integer id) {
+    public Result updateTask(TaskDto taskDto, Long id) {
         Optional<Task> byId = taskRepo.findById(id);
         if (byId.isPresent()) {
             Task task = byId.get();
@@ -78,7 +78,7 @@ public class TaskService {
         return new Result(false,"Task not found");
     }
 
-    public Result deleteTask(Integer id) {
+    public Result deleteTask(Long id) {
         taskRepo.deleteById(id);
         return new Result(true,"Task deleted successfully");
     }

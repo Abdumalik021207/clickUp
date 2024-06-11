@@ -25,7 +25,7 @@ public class Click_appsService {
         return click_appsRepo.findAll();
     }
 
-    public Click_apps getClick_apps(Integer id) {
+    public Click_apps getClick_apps(Long id) {
         return click_appsRepo.findById(id).get();
     }
 
@@ -43,7 +43,7 @@ public class Click_appsService {
         return new Result(false, "Icon not found");
     }
 
-    public Result updateClick_apps(Click_appsDto click_appsDto, Integer id) {
+    public Result updateClick_apps(Click_appsDto click_appsDto, Long id) {
         Optional<Click_apps> byId = click_appsRepo.findById(id);
         if (byId.isPresent()) {
             Click_apps clickApps = byId.get();
@@ -56,7 +56,7 @@ public class Click_appsService {
         return new Result(false, "Icon not found");
     }
 
-    public Result deleteClick_apps(Integer id) {
+    public Result deleteClick_apps(Long id) {
         click_appsRepo.deleteById(id);
         return new Result(true, "Successfully deleted Click Apps");
     }

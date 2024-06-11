@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class ProjectDto {
 
     private String name;
-    private Integer space_id;
+    private Long space_id;
     private String acces_type;
     private String color;
 

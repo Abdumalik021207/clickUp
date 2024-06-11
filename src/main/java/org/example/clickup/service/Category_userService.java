@@ -30,7 +30,7 @@ public class Category_userService {
         return category_userRepo.findAll();
     }
 
-    public Category_user findById(Integer id) {
+    public Category_user findById(Long id) {
         return category_userRepo.findById(id).get();
     }
 
@@ -52,7 +52,7 @@ public class Category_userService {
         return new Result(true,"Successfully created");
     }
 
-    public Result update(Category_userDto category_userDto, Integer id) {
+    public Result update(Category_userDto category_userDto, Long id) {
         Optional<Category_user> byId = category_userRepo.findById(id);
         Category_user category_user = byId.get();
 
@@ -75,7 +75,7 @@ public class Category_userService {
         return new Result(false,"Error");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         category_userRepo.deleteById(id);
         return new Result(true,"Successfully deleted");
     }

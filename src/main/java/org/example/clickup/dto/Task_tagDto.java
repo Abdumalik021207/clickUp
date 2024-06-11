@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Task_tagDto {
 
-    private Integer task_id;
-    private Integer tag_id;
+    private Long task_id;
+    private Long tag_id;
 
 }

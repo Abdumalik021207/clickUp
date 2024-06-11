@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Task_historyDto {
 
-    private Integer task_id;
+    private Long task_id;
     private String change_field_name;
     private Timestamp before;
     private Timestamp after;

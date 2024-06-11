@@ -25,7 +25,7 @@ public class WorkspaceController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Workspace getWorkspaceById(@PathVariable Integer id) {
+    public Workspace getWorkspaceById(@PathVariable Long id) {
         return workspaceService.getWorkspaceById(id);
     }
 
@@ -35,13 +35,13 @@ public class WorkspaceController {
     }
 
     @PutMapping("/{id}")
-    public Result updateWorkspace(@PathVariable Integer id, @RequestBody WorkspaceDto workspaceDto) {
+    public Result updateWorkspace(@PathVariable Long id, @RequestBody WorkspaceDto workspaceDto) {
         return workspaceService.updateWorkspace(workspaceDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteWorkspace(@PathVariable Integer id) {
+    public Result deleteWorkspace(@PathVariable Long id) {
         return workspaceService.deleteWorkspace(id);
     }
 

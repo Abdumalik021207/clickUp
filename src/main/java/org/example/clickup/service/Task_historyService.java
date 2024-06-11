@@ -25,7 +25,7 @@ public class Task_historyService {
         return task_historyRepo.findAll();
     }
 
-    public Task_history findById(Integer id) {
+    public Task_history findById(Long id) {
         return task_historyRepo.findById(id).get();
     }
 
@@ -44,7 +44,7 @@ public class Task_historyService {
         return new Result(true,"Successfully created");
     }
 
-    public Result update(Task_historyDto task_historyDto, Integer id) {
+    public Result update(Task_historyDto task_historyDto, Long id) {
         Optional<Task_history> byId = task_historyRepo.findById(id);
         if (byId.isPresent()) {
             Task_history taskHistory = byId.get();
@@ -63,7 +63,7 @@ public class Task_historyService {
         return new Result(false,"Task not found");
     }
 
-    public Result delete(Integer id) {
+    public Result delete(Long id) {
         task_historyRepo.deleteById(id);
         return new Result(true,"Successfully deleted");
     }

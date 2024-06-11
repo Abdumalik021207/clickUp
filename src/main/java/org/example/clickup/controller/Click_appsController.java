@@ -25,7 +25,7 @@ public class Click_appsController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Click_apps getClick_apps(@PathVariable Integer id) {
+    public Click_apps getClick_apps(@PathVariable Long id) {
         return click_appsService.getClick_apps(id);
     }
 
@@ -35,13 +35,13 @@ public class Click_appsController {
     }
 
     @PutMapping("/{id}")
-    public Result updateClick(@PathVariable Integer id, @RequestBody Click_appsDto click_appsDto) {
+    public Result updateClick(@PathVariable Long id, @RequestBody Click_appsDto click_appsDto) {
         return click_appsService.updateClick_apps(click_appsDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteClick(@PathVariable Integer id) {
+    public Result deleteClick(@PathVariable Long id) {
         return click_appsService.deleteClick_apps(id);
     }
 

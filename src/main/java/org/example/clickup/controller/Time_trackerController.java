@@ -25,7 +25,7 @@ public class Time_trackerController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Time_tracker getTime_trackerById(@PathVariable Integer id) {
+    public Time_tracker getTime_trackerById(@PathVariable Long id) {
         return time_trackerService.getById(id);
     }
 
@@ -35,13 +35,13 @@ public class Time_trackerController {
     }
 
     @PutMapping("/{id}")
-    public Result updateTime_tracker(@PathVariable Integer id, @RequestBody Time_trackerDto time_trackerDto) {
+    public Result updateTime_tracker(@PathVariable Long id, @RequestBody Time_trackerDto time_trackerDto) {
         return time_trackerService.update(time_trackerDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteTime_tracker(@PathVariable Integer id) {
+    public Result deleteTime_tracker(@PathVariable Long id) {
         return time_trackerService.delete(id);
     }
 

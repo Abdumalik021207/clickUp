@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public User getUser(@PathVariable Integer id) {
+    public User getUser(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
@@ -35,13 +35,13 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public Result updateUser(@PathVariable Integer id, @RequestBody UserDto userDto) {
+    public Result updateUser(@PathVariable Long id, @RequestBody UserDto userDto) {
         return userService.updateUser(userDto, id);
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole(SUPER_ADMIN,ADMIN)")
-    public Result deleteUser(@PathVariable Integer id) {
+    public Result deleteUser(@PathVariable Long id) {
         return userService.deleteUser(id);
     }
 }
