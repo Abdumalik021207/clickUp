@@ -4,6 +4,7 @@ import org.example.clickup.dto.Workspace_permissionDto;
 import org.example.clickup.model.Result;
 import org.example.clickup.model.Workspace_permission;
 import org.example.clickup.model.Workspace_role;
+import org.example.clickup.model.template.Permission;
 import org.example.clickup.repository.Workspace_permissionRepo;
 import org.example.clickup.repository.Workspace_roleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class Workspace_permissionService {
 
     public Result createPermission(Workspace_permissionDto permissionDto) {
         Workspace_permission workspacePermission = new Workspace_permission();
-        workspacePermission.setPermission(permissionDto.getPermission());
+        workspacePermission.setPermission(Permission.ADMIN);
         Optional<Workspace_role> byId = workspace_roleRepo.findById(permissionDto.getWorkspace_role_id());
         if (byId.isPresent()) {
             Workspace_role workspaceRole = byId.get();

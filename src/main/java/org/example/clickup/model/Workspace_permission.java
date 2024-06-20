@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.example.clickup.model.template.AbsEntity;
+import org.example.clickup.model.template.Permission;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -16,6 +17,5 @@ public class Workspace_permission extends AbsEntity {
 
     @OneToOne
     private Workspace_role workspace_role_id;
-    @Column(nullable = false)
-    private String permission;
+    private Permission permission;
 }
